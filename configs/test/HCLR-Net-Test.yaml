@@ -1,0 +1,38 @@
+model:
+  name: HCLRNet-Test
+  task: UnderWater Image Enhance
+  struct:
+    name: HCLRNet
+    input_nc: 3
+    ngf: 64
+
+data:
+  dir: Datasets/UnderWater/test
+  dataset_type: UIETestDataset
+  is_multi_loader: true
+  input_transforms:
+  target_transforms:
+
+tester:
+  name: IRTester
+  save_dir: HCLR-Net
+  save_output: true
+  save_comparison: true
+  compute_input_metrics: true
+  resume_ckpt: checkpoints/HCLRNet/2025-06-15-19-55-44/latest_ckpt.pth
+  batch_size_test: 1
+  batch_size_per_gpu_test:
+  num_workers_per_gpu: 8
+  drop_last: true
+  pin_memory: true
+  scaler: native
+  sync_bn: false
+  dist_bn:
+  amp: true
+
+logger:
+  dir: logs
+  log_freq: 100
+  logger_rank: 0
+
+seed: 42
