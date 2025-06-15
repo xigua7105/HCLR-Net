@@ -36,11 +36,11 @@
     ``` 
 - Train your model:
   ```
-  python run.py --c configs/train/sev-uiem-16.yaml --mode train
+  python run.py --c configs/train/HCLR-Net.yaml --mode train
   ```
 - Test your model:
   ```
-  python run.py --c configs/test/sev-uiem-16.yaml --mode test
+  python run.py --c configs/test/HCLR-Net-Test.yaml --mode test
   ```
 #  Implementation Details
 ## 💿 Datasets
