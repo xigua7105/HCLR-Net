@@ -1,8 +1,7 @@
 import os
-import numpy as np
-import random
-
 import torch
+import random
+import numpy as np
 from PIL import Image
 from torch.utils.data import Dataset
 from torchvision.datasets.folder import ImageFolder, IMG_EXTENSIONS
@@ -101,7 +100,7 @@ class HCLRDataset(Dataset):
         for root, _, files in os.walk(self.root):
             for file in files:
                 if file.lower().endswith(IMG_EXTENSIONS):
-                    input_type = root.split('/')[-2] if self.is_train else root.split('/')[-1]
+                    input_type = root.split('/')[-1]
                     assert input_type in ['input', 'target']
                     if input_type == 'input':
                         input_path = os.path.join(root, file)
